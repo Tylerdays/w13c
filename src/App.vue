@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <SongList :songs="songs" @add-song="onAddSong"/>
-    <PlayList :songs="PLay" @remove-song="onRemoveSong"/>
+    <PlayList :songs="PlayList" @remove-song="onRemoveSong"/>
   </div>
 
 </template>
@@ -24,9 +24,9 @@ export default {
   },
   methods: {
     onAddSong(song) {
-      this.playlist.push(song);
+      this.PlayList.push(song);
     },
-    onRemoveSong(song) {
+    onRemove(song) {
       this.songs.push(song);
     }
   }

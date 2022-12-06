@@ -4,14 +4,14 @@
         <ul>
             <li v-for="song in songs" :key="song.id">
             {{song.title}} - {{song.artist}}
-            <button @click="removeSongFromPlayList(song)">Remove From PlayList</button>
         </li>
-            
+            <button @click="removeSongFromPlayList(song)">Remove From PlayList</button>
         </ul>
     </div>
 </template>
 
 <script>
+
     export default {
         name: 'PlayList',
         data () {
@@ -26,8 +26,8 @@
                 this.songs.splice(index, 1);
 
                 // Adding the song back to the songlist
-                this.$emit('remove-song', song);
-        }
+            this.$emit('remove-song', song);
+}
         }
     }
 </script>

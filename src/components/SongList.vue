@@ -2,7 +2,7 @@
     <div>
         <ul>
             <li v-for="song in songs" :key="song.id">
-                {{song.title}} - {{song.artist}}
+                {{songs.title}} - {{songs.artist}}
                 <button @click="addSongToPlayList(song, $event)">Add to PlayList</button>
             </li>
         </ul>
