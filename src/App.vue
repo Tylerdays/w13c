@@ -1,17 +1,34 @@
 <template>
   <div id="app">
-    <SongList/>
+    <SongList :songs="songs" @add-song="onAddSong"/>
+    <PlayList :songs="PLay" @remove-song="onRemoveSong"/>
   </div>
 
 </template>
 
 <script>
 import SongList from './components/SongList.vue'
+import PlayList from './components/PlayList.vue'
 
 export default {
   name: 'App',
   components: {
     SongList,
+    PlayList,
+  },
+  data (){
+    return {
+      songs: [],
+      PlayList: []
+    }
+  },
+  methods: {
+    onAddSong(song) {
+      this.playlist.push(song);
+    },
+    onRemoveSong(song) {
+      this.songs.push(song);
+    }
   }
 }
 </script>

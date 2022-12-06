@@ -3,6 +3,7 @@
         <ul>
             <li v-for="song in songs" :key="song.id">
                 {{song.title}} - {{song.artist}}
+                <button @click="addSongToPlayList(song, $event)">Add to PlayList</button>
             </li>
         </ul>
     </div>
@@ -44,9 +45,11 @@
         },
         methods: {
             //first we have to remove the song from the songlist
-            addSongToPlaylist(song) {
+            addSongToPlayList(song, $event) {
                 const index = this.songs.findIndex(s => s.id === song.id);
                 this.songs.splice(index, 1);
+            // Next we have to add the song to the PlayList
+                this.$emit('add-song', song, $event);
             }
         }
     }
